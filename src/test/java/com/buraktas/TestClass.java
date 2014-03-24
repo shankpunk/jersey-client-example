@@ -1,7 +1,5 @@
 package com.buraktas;
 
-import org.junit.Assert;
-import org.junit.Ignore;
 import org.junit.Test;
 
 import com.buraktas.entity.BookEntity;
@@ -13,7 +11,6 @@ import com.sun.jersey.api.json.JSONConfiguration;
 
 public class TestClass {
 
-    @Ignore
     @Test
     public void testName() throws Exception {
 
@@ -24,7 +21,7 @@ public class TestClass {
 
         BookEntity entity = webResource.accept("application/json").get(BookEntity.class);
 
-        Assert.assertEquals(entity.getAuthor(), "Burak");
+        System.out.println("HELLO WORLD TEST");
 
     }
 }

@@ -3,6 +3,7 @@ package com.buraktas.resource;
 import java.util.Map;
 
 import javax.ws.rs.Consumes;
+import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.PUT;
@@ -39,7 +40,15 @@ public interface BookResource {
     public BookEntity createBook(BookEntity bookEntity);
 
     @PUT
-    @Path("update")
-    @Consumes({ MediaType.APPLICATION_JSON })
-    public void updateBook(@PathParam("id") int id, @PathParam("name") String name, @PathParam("lastname") String lastName, @PathParam("age") int age);
+    @Path("/update")
+    @Produces({ MediaType.APPLICATION_JSON })
+    public BookEntity updateBook(@PathParam("id") int id,
+                                 @PathParam("title") String title,
+                                 @PathParam("author") String author,
+                                 @PathParam("price") double price);
+
+    @DELETE
+    @Path("/delete")
+    @Produces({ MediaType.APPLICATION_JSON })
+    public BookEntity deleteBook(@QueryParam("id") int id);
 }

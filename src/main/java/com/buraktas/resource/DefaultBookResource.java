@@ -47,9 +47,36 @@ public class DefaultBookResource implements BookResource {
     }
 
     @Override
-    public void updateBook(int id, String name, String lastName, int age) {
-        // TODO Auto-generated method stub
+    public BookEntity updateBook(int id, String title, String author, double price) {
 
+        if (list.containsKey(id)) {
+
+            BookEntity updateEntity = list.get(id);
+
+            updateEntity.setTitle(title);
+            updateEntity.setTitle(author);
+            updateEntity.setPrice(price);
+
+            return updateEntity;
+        } else {
+
+            return null;
+        }
+    }
+
+    @Override
+    public BookEntity deleteBook(int id) {
+
+        if (list.containsKey(id)) {
+
+            BookEntity deleteEntity = list.get(id);
+            list.remove(id);
+
+            return deleteEntity;
+        } else {
+
+            return null;
+        }
     }
 
 }
