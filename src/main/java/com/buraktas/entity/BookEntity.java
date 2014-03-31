@@ -1,8 +1,5 @@
 package com.buraktas.entity;
 
-import javax.xml.bind.annotation.XmlRootElement;
-
-@XmlRootElement(name = "burak")
 public class BookEntity {
 
     private int    id;

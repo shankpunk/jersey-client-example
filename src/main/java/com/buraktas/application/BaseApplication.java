@@ -8,7 +8,7 @@ import javax.ws.rs.core.Application;
 
 import com.buraktas.resource.DefaultBookResource;
 
-@ApplicationPath("")
+@ApplicationPath("/services")
 public class BaseApplication extends Application {
 
     private Set<Object> singletons = new HashSet<Object>();

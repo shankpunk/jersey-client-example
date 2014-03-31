@@ -15,7 +15,7 @@ import javax.ws.rs.core.MediaType;
 
 import com.buraktas.entity.BookEntity;
 
-@Path("book-service")
+@Path("/book-service")
 public interface BookResource {
 
     @GET
@@ -35,8 +35,8 @@ public interface BookResource {
 
     @POST
     @Path("/create")
-    @Consumes({ MediaType.APPLICATION_JSON })
-    @Produces({ MediaType.APPLICATION_JSON })
+    @Consumes("application/json")
+    @Produces("application/json")
     public BookEntity createBook(BookEntity bookEntity);
 
     @PUT
