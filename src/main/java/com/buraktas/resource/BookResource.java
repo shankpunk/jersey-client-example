@@ -40,7 +40,7 @@ public interface BookResource {
     public BookEntity createBook(BookEntity bookEntity);
 
     @PUT
-    @Path("/update")
+    @Path("/update/id/{id}/title/{title}/author/{author}/price/{price}")
     @Produces({ MediaType.APPLICATION_JSON })
     public BookEntity updateBook(@PathParam("id") int id,
                                  @PathParam("title") String title,
@@ -48,7 +48,12 @@ public interface BookResource {
                                  @PathParam("price") double price);
 
     @DELETE
-    @Path("/delete")
+    @Path("/delete/id/{id}")
     @Produces({ MediaType.APPLICATION_JSON })
-    public BookEntity deleteBook(@QueryParam("id") int id);
+    public BookEntity deleteBook(@PathParam("id") int id);
+
+    @DELETE
+    @Path("/deleteAll")
+    @Produces({ MediaType.APPLICATION_JSON })
+    public void deleteAll();
 }

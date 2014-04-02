@@ -54,7 +54,7 @@ public class DefaultBookResource implements BookResource {
             BookEntity updateEntity = list.get(id);
 
             updateEntity.setTitle(title);
-            updateEntity.setTitle(author);
+            updateEntity.setAuthor(author);
             updateEntity.setPrice(price);
 
             return updateEntity;
@@ -77,6 +77,13 @@ public class DefaultBookResource implements BookResource {
 
             return null;
         }
+    }
+
+    @Override
+    public void deleteAll() {
+
+        list.clear();
+        idCounter.set(0);
     }
 
 }
