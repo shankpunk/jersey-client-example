@@ -39,4 +39,16 @@ public class BookEntity {
         this.price = price;
     }
 
+    @Override
+    public String toString() {
+
+        StringBuilder stringBuilder = new StringBuilder();
+
+        stringBuilder.append("Id : " + this.id + '\n');
+        stringBuilder.append("Title : " + this.title + '\n');
+        stringBuilder.append("Author : " + this.author + '\n');
+        stringBuilder.append("Price : " + this.price + '\n');
+
+        return stringBuilder.toString();
+    }
 }

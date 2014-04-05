@@ -5,4 +5,6 @@ A Restful Jersey Client example with consuming and producing JSON entities by Ja
 - PUT
 - DELETE
 	
-http methods.
+http methods with unit tests.
+
+Run "mvn clean install" and deploy the .war file into JBoss

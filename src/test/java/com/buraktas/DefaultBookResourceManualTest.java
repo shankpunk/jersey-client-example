@@ -43,8 +43,13 @@ public class DefaultBookResourceManualTest {
     @Test
     public void testCreateSuccess() throws Exception {
 
+        BookEntity bookEntity = new BookEntity();
+        bookEntity.setTitle("LOTR");
+        bookEntity.setAuthor("Tolkien");
+        bookEntity.setPrice(12.99);
+
         WebResource webResourcePost = client.resource("http://localhost:8080/jersey-rest-client/services/book-service/create");
-        ClientResponse response = webResourcePost.accept("application/json").type("application/json").post(ClientResponse.class, POST_INPUT_1);
+        ClientResponse response = webResourcePost.accept("application/json").type("application/json").post(ClientResponse.class, bookEntity);
         BookEntity responseEntity = response.getEntity(BookEntity.class);
 
         assertEquals(200, response.getStatus());
@@ -62,7 +67,6 @@ public class DefaultBookResourceManualTest {
                                             .path("/price/12.99");
 
         ClientResponse response = webResourcePost.accept("application/json").post(ClientResponse.class);
-
         BookEntity responseEntity = response.getEntity(BookEntity.class);
 
         assertEquals(200, response.getStatus());
@@ -135,7 +139,6 @@ public class DefaultBookResourceManualTest {
                                            .path("/price/7.88");
 
         response = webResourcePut.accept("application/json").put(ClientResponse.class);
-
         BookEntity responseEntity = response.getEntity(BookEntity.class);
 
         assertEquals(200, response.getStatus());
